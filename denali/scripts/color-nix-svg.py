@@ -13,7 +13,7 @@ def recolor(element, color):
 
 
 if __name__ == "__main__":
-    tree = etree.parse("./nix-snowflake.svg")
+    tree = etree.parse("./images/nix-snowflake.svg")
     root = tree.getroot()
     namespaces = {'svg': 'http://www.w3.org/2000/svg'}
     e1 = root.find(f".//*[@id='linearGradient5562']")
@@ -27,4 +27,4 @@ if __name__ == "__main__":
     recolor(e1, colors[12])
     recolor(e2, colors[6])
     
-    tree.write("./nix-snowflake-pywal.svg")
+    tree.write("./images/nix-snowflake-pywal.svg")
