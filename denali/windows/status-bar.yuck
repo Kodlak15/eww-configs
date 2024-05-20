@@ -34,7 +34,7 @@
 	)
 )
 
-(defwindow bar
+(defwindow status-bar
 	:monitor 0
 	:geometry (
 		geometry
@@ -46,6 +46,6 @@
 	)
 	:stacking "fg"
 	:exclusive true
-	:namespace "bar"
+	:namespace "status-bar"
 	(bar-container)
 )

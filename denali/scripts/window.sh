@@ -14,16 +14,10 @@ toggle() {
 }
 
 open() {
-	# if [[ -z "$(eww active-windows | grep "$1")" ]]; then
-	# 	eww open "$1"
-	# fi
 	eww open "$1"
 }
 
 close() {
-	# if [[ -n "$(eww active-windows | grep "$1")" ]]; then
-	# 	eww close "$1"
-	# fi
 	eww close "$1"
 }
 

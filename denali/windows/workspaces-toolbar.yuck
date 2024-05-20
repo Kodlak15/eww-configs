@@ -1,22 +1,20 @@
-(defwidget workspaces_toolbar []
+(defwidget workspaces-toolbar []
 	(box
 		:class "workspaces-toolbar"
 		(workspaces)
 	)
 )
 
-(defwindow workspaces_toolbar 
+(defwindow workspaces-toolbar 
 	:monitor 0
 	:geometry (
 		geometry
 		:x "0%"
 		:y "5px"
-		:width "33%"
-		:height "36px"
 		:anchor "bottom center"
 	)
 	:stacking "fg"
 	:exclusive true
-	:namespace "workspaces"
-	(workspaces_toolbar)
+	:namespace "workspaces-toolbar"
+	(workspaces-toolbar)
 )
