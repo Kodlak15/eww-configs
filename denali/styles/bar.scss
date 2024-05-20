@@ -8,139 +8,139 @@ $module-separation: 16px;
 // Bar
 
 .bar {
-	all: unset;
-	font-family: Fira Code Nerd Font;
-	font-size: 12px;
-	background: $background;
-	border: 2px solid $color11;
-	border-radius: 20px;
-}
+  all: unset;
+  font-family: Fira Code Nerd Font;
+  font-size: 12px;
+  background: $background;
+  border: 2px solid $color11;
+  border-radius: 20px;
 
-// Containers
+  // Containers
 
-.bar-left {
-	margin-left: $edge-margin;
-}
+  .bar-left {
+    margin-left: $edge-margin;
+  }
 
-.bar-right {
-	margin-right: $edge-margin;
-}
+  .bar-right {
+    margin-right: $edge-margin;
+  }
 
-// Modules
+  // Modules
 
-.workspaces {
-	.workspace-id {
-		.circle-outer {
-			padding: 2px;
-			margin: 6px 2px;
-			border: 2px solid #222222;
-			border-radius: 100px;
-		}
+  .workspaces {
+    .workspace-id {
+      .circle-outer {
+        padding: 2px;
+        margin: 6px 2px;
+        border: 2px solid #222222;
+        border-radius: 100px;
+      }
 
-		.circle-inner {
-			background: $color8;
-			border-radius: 100px;
-		}
+      .circle-inner {
+        background: $color8;
+        border-radius: 100px;
+      }
 
-		&.occupied {
-			.circle-outer {
-				border: 2px solid $color11;
-			}
-		}
+      &.occupied {
+        .circle-outer {
+          border: 2px solid $color11;
+        }
+      }
 
-		&.current {
-			.circle-outer {
-				border: 2px solid #ffffff;
-			}
-		}
-	}
-}
+      &.current {
+        .circle-outer {
+          border: 2px solid #ffffff;
+        }
+      }
+    }
+  }
 
-.datetime {
-	color: $color8;
-}
+  .datetime {
+    color: $color8;
+  }
 
-.brightness {
-	color: $color8;
-	margin-right: $module-separation;
+  .brightness {
+    color: $color8;
+    margin-right: $module-separation;
 
-	scale {
-		min-width: 64px;
-		min-height: 5px;
-	}
+    scale {
+      min-width: 64px;
+      min-height: 5px;
+    }
 
-	.brightness-icon {
-		font-size: 16px;
-	}
+    .brightness-icon {
+      font-size: 16px;
+    }
 
-	trough {
-		background: #ffffff;
-		border: none;
-		border-radius: 20px;
-		min-height: 4px;
-	}
+    trough {
+      background: #ffffff;
+      border: none;
+      border-radius: 20px;
+      min-height: 4px;
+    }
 
-	slider {
-		background-image: none;
-		box-shadow: none;
-		text-shadow: none;
-	}
+    slider {
+      background-image: none;
+      box-shadow: none;
+      text-shadow: none;
+    }
 
-	highlight {
-		background: $color11;
-	}
-}
+    highlight {
+      background: $color11;
+    }
+  }
 
-.volume {
-	color: $color8;
-	margin-right: $module-separation;
+  .volume {
+    color: $color8;
+    margin-right: $module-separation;
 
-	.volume-icon {
-		font-size: 12px;
-	}
+    .volume-icon {
+      font-size: 12px;
+    }
 
-	scale {
-		all: unset;
-		min-width: 64px;
-		min-height: 5px;
-	}
+    scale {
+      all: unset;
+      min-width: 64px;
+      min-height: 5px;
+    }
 
-	trough {
-		background: #ffffff;
-		border: none;
-		border-radius: 20px;
-		min-height: 4px;
-	}
+    trough {
+      background: #ffffff;
+      border: none;
+      border-radius: 20px;
+      min-height: 4px;
+    }
 
-	slider {
-		background-image: none;
-		box-shadow: none;
-		text-shadow: none;
-	}
+    slider {
+      background-image: none;
+      box-shadow: none;
+      text-shadow: none;
+    }
 
-	highlight {
-		background: $color11;
-	}
-}
+    highlight {
+      background: $color11;
+    }
+  }
 
-.weather {
-	color: $color8;
-	margin-right: $module-separation;
+  .weather {
+    color: $color8;
+    margin-right: $module-separation;
 
-	.icon {
-		margin-right: 8px;
-	}
-}
+    .icon {
+      margin-right: 8px;
+    }
+  }
 
-.battery {
-	font-size: 16px;
-	color: $color8;
+  .battery {
+    font-size: 16px;
+    color: $color8;
 
-	&.charging {
-		color: #00ff00;
-	}
+    &.charging {
+      color: #00ff00;
+    }
 
-	&.low {
-		color: #ff0000;
-	}
+    &.low {
+      color: #ff0000;
+    }
+  }
 }

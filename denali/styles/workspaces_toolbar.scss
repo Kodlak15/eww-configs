@@ -1,0 +1,43 @@
+@use "/home/cody/.cache/wal/colors" as *;
+
+.workspaces-toolbar {
+  .workspaces {
+    background: $background;
+    margin: 2px;
+    padding: 2px 12px;
+    border: 2px solid $color11;
+    border-radius: 100px;
+
+    &>* {
+      border: none;
+    }
+
+    .workspace-id {
+      margin: 6px 12px;
+
+      .circle-outer {
+        padding: 6px;
+        margin: 2px;
+        border: 2px solid #222222;
+        border-radius: 100px;
+      }
+
+      .circle-inner {
+        background: $color8;
+        border-radius: 100px;
+      }
+
+      &.occupied {
+        .circle-outer {
+          border: 2px solid $color11;
+        }
+      }
+
+      &.current {
+        .circle-outer {
+          border: 2px solid #ffffff;
+        }
+      }
+    }
+  }
+}
