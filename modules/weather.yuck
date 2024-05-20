@@ -1,0 +1,24 @@
+(defpoll temp
+	:interval "30s"
+	:initial "unavailable"
+	"./scripts/weather.sh --temp"
+)
+
+(defpoll icon
+	:interval "30s"
+	:initial "./images/weather/error.png"
+	"./scripts/weather.sh --icon"
+)
+
+(defwidget weather []
+	(box
+		:class "weather"
+		(image 
+			:class "icon"
+			:path "${icon}" 
+			:image-width 16 
+			:image-height 16
+		)
+		(label :text "${temp}")
+	)
+)

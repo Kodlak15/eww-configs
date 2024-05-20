@@ -1,0 +1,48 @@
+(defwidget powermenu []
+	(box
+		:class "powermenu"
+		(box
+			:orientation "h"
+			:halign "center"
+			:valign "center"
+			:space-evenly false
+			(eventbox
+				:class "shutdown"
+				:halign "center"
+				:cursor "pointer"
+				(button
+					;; :onclick `"shutdown -h now"`
+					"󰐥"
+				)
+			)
+			(eventbox
+				:class "reboot"
+				:halign "center"
+				:valign "center"
+				:cursor "pointer"
+				(eventbox
+					(button
+						;; :onclick "reboot"
+						"󰜉"
+					)
+				)
+			)
+		)
+	)
+)
+
+(defwindow powermenu
+	:monitor 0
+	:geometry (
+		geometry
+			:x "0.3%"
+			:y "0.3%"
+			:width "10%"
+			:height "10%"
+			:anchor "top right"
+	)
+	:stacking "fg"
+	:exclusive true
+	:namespace "bar"
+	(powermenu)
+)

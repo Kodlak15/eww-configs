@@ -1,0 +1,30 @@
+(defpoll battery_remaining
+	:initial "100"
+	:interval "30s"
+	`./scripts/battery.sh -r`
+)
+
+(defpoll charging
+	:initial false
+	:interval "3s"
+	`./scripts/battery.sh -c`
+)
+
+(defwidget battery []
+	(box
+		:class {
+			charging == true ? "battery charging" :
+			battery_remaining < 10 ? "battery low" :
+			"battery"
+		}
+		(label
+			:text {
+				battery_remaining > 80 ? " " :
+				battery_remaining > 60 ? " " :
+				battery_remaining > 40 ? " " :
+				battery_remaining > 20 ? " " :
+				" "
+			}
+		)
+	)
+)

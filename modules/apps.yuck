@@ -1,0 +1,96 @@
+(defwidget librewolf []
+	(button
+		:class "librewolf"
+		:onclick "./scripts/applaunch.sh --librewolf"
+		""
+	)
+)
+
+(defwidget firefox []
+	(button
+		:class "librewolf"
+		:onclick "./scripts/applaunch.sh --firefox"
+		""
+	)
+)
+
+(defwidget spotify []
+	(button
+		:class "spotify"
+		:onclick "./scripts/applaunch.sh --spotify"
+		""
+	)
+)
+
+(defwidget steam []
+	(button
+		:class "steam"
+		:onclick "./scripts/applaunch.sh --steam"
+		"󰓓"
+	)
+)
+
+(defwidget discord []
+	(button
+		:class "discord"
+		:onclick "./scripts/applaunch.sh --discord"
+		"󰙯"
+	)
+)
+
+(defwidget discord []
+	(button
+		:class "discord"
+		:onclick "./scripts/applaunch.sh --discord"
+		"󰙯"
+	)
+)
+
+(defwidget obs []
+	(button
+		:class "obs"
+		:onclick "./scripts/applaunch.sh --obs"
+		(image :path "../images/obs.svg")
+		;; "󰙯"
+	)
+)
+
+(defwidget gimp []
+	(button
+		:class "gimp"
+		:onclick "./scripts/applaunch.sh --gimp"
+		""
+	)
+)
+
+(defwidget logseq []
+	(button
+		:class "gimp"
+		:onclick "./scripts/applaunch.sh --logseq"
+		""
+	)
+)
+
+(defwidget wireshark []
+	(button
+		:class "wireshark"
+		:onclick "./scripts/applaunch.sh --wireshark"
+		"󱙳"
+	)
+)
+
+(defwidget apps []
+	(box
+		:class "systray"
+		:valign "center"
+		;; (librewolf)
+		(firefox)
+		(spotify)
+		(steam)
+		(discord)
+		;; (obs)
+		(wireshark)
+		(gimp)
+		;; (logseq)
+	)
+)
