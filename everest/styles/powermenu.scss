@@ -3,6 +3,7 @@
 // Powermenu
 
 .powermenu {
+	all: unset;
 	font-size: 64px;
 	background: $background;
 	border: 2px solid $color11;
@@ -11,14 +12,17 @@
 
 // Modules
 
-.shutdown {
-	label {
-		color: $color8;
-	}
-}
-
+.shutdown,
 .reboot {
-	label {
+	button {
+		background: none;
 		color: $color8;
+		border: none;
+		padding: 0px 24px;
+		transition: 1.0s;
+
+		&:hover {
+			color: white;
+		}
 	}
 }

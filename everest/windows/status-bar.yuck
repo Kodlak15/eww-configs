@@ -2,7 +2,22 @@
 	(box
 		:class "bar-left"
 		:space-evenly false
-		(workspaces)
+		;; (workspaces)
+		(box
+			:class "nix-info"
+			:space-evenly false
+			(image 
+				;; TODO find a way to change colors of logo
+				;; :path "./images/nix-snowflake-pywal.svg"
+				:path "/home/cody/.cache/wal/nix-snowflake.svg"
+				:class "nix-logo"
+				:image-height 25
+				:image-width 25
+			)
+			(label
+				:text "cody@denali"
+			)
+		)
 	)
 )
 
@@ -34,7 +49,7 @@
 	)
 )
 
-(defwindow bar
+(defwindow status-bar
 	:monitor 0
 	:geometry (
 		geometry
@@ -46,6 +61,6 @@
 	)
 	:stacking "fg"
 	:exclusive true
-	:namespace "bar"
+	:namespace "status-bar"
 	(bar-container)
 )

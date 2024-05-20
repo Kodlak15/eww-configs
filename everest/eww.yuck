@@ -12,6 +12,7 @@
 (include "./modules/weather.yuck")
 
 ;; Include windows
-(include "./windows/bar.yuck")
+(include "./windows/status-bar.yuck")
 (include "./windows/dashboard.yuck")
 (include "./windows/powermenu.yuck")
+(include "./windows/workspaces-toolbar.yuck")
