@@ -1,0 +1,36 @@
+(defpoll muted
+	:interval "1s"
+	:initial false
+	`./scripts/sound.sh --muted`
+)
+
+(defpoll get_volume
+	:interval "100ms"
+	:initial "0"
+	`amixer -D default sget Master | grep Left: | awk -F '[][]' '{print $2}' | tr -d '%'`
+)
+
+(defwidget volume []
+	(box
+		:class "volume"
+		:space-evenly false
+		:spacing 16
+		(label 
+			:text {
+				muted == false ? "" :
+        "󰝟"
+			} 
+			:class "volume-icon"
+		)
+		(scale
+			:class "slider"
+			:value get_volume
+			:orientation "h"
+			:tooltip "${get_volume}"
+			:min 0
+			:max 101
+			:active true
+			:onchange "amixer -D default sset Master {}%"
+		)
+	)
+)

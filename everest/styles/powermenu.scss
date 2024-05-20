@@ -1,0 +1,24 @@
+@use "/home/cody/.cache/wal/colors" as *;
+
+// Powermenu
+
+.powermenu {
+	font-size: 64px;
+	background: $background;
+	border: 2px solid $color11;
+	border-radius: 10px;
+}
+
+// Modules
+
+.shutdown {
+	label {
+		color: $color8;
+	}
+}
+
+.reboot {
+	label {
+		color: $color8;
+	}
+}

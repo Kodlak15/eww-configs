@@ -1,0 +1,71 @@
+(defwidget dashboard []
+	(box
+		:class "dashboard"
+		:orientation "v"
+		:space-evenly false
+		(box
+			:class "header"
+			:height 64
+			(label :text "Kodlak")
+		)
+		(box
+			:class "grid"
+		  :orientation "v"
+			:height "${1028 - 108}"
+		  (box
+				:class "grid-row"
+		    ;; (sysinfo)
+		    ;; (sysinfo)
+		  )
+		  (box
+				:class "grid-row no-border-bottom"
+				:space-evenly true
+		    (sysinfo)
+				(label :text "test")
+				(label :text "test")
+		    ;; (sysinfo)
+		  )
+		)
+	)
+)
+
+(defwidget sysinfo []
+	(box
+		:class "sysinfo"
+		:orientation "v"
+		;; :space-evenly false
+		:valign "center"
+		:halign "left"
+		;; :width 856
+		:width 428
+		(box
+			:orientation "h"
+		  (cpu)
+		  (cpu)
+		  ;; (cpu)
+		  ;; (cpu)
+		)
+		(box
+			:orientation "h"
+		  (gpu)
+		  (gpu)
+		  ;; (gpu)
+		  ;; (gpu)
+		)
+	)
+)
+
+(defwindow dashboard
+	:monitor 0
+	:geometry (
+		geometry
+		:x "0%"
+		:y "0%"
+		:width "1728px" 
+		:height "1028px" 
+	)
+	:stacking "fg"
+	:exclusive false
+	:namespace "dashboard"
+	(dashboard)
+)

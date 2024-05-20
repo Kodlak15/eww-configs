@@ -1,0 +1,108 @@
+@use "/home/cody/.cache/wal/colors" as c;
+
+.dashboard {
+	font-family: Fira Code Nerd Font;
+	background: c.$color0;
+	border: 4px solid c.$color8;
+
+	.header {
+		font-weight: bold;
+	  border-bottom: 4px solid c.$color8;
+		padding: 12px;
+
+		label {
+			font-size: 48px;
+			color: c.$color8;
+		}
+	}
+
+	.grid {
+		.grid-row {
+	    border-bottom: 4px solid c.$color8;
+
+			&.no-border-bottom {
+				border-bottom: none;
+			}
+		}
+	}
+
+	.sysinfo {
+		font-size: 24px;
+		color: c.$color8;
+		// border-right: 8px solid c.$color4;
+
+		.battery {
+
+			&.charging {
+				color: #00ff00;
+			}
+
+			&.low {
+				color: #ff0000;
+			}
+		}
+
+		.cpu {
+			// border: 2px solid yellow;
+			padding: 24px 0px 0px 24px;
+
+		  .cpu-usage {
+		  	scale {
+		  		min-width: 128px;
+		  		min-height: 64px;
+		  	}
+
+		  	trough {
+		  		background: #ffffff;
+		  		border: none;
+		  		// border-radius: 20px;
+		  		min-height: 12px;
+		  	}
+
+		  	slider {
+		  		background-image: none;
+		  		box-shadow: none;
+		  		text-shadow: none;
+		  	}
+
+		  	highlight {
+		  		background: c.$color11;
+		  	}
+		  }
+		}
+
+		.gpu {
+			// border: 2px solid yellow;
+			// padding: 24px 0px 0px 24px;
+			padding: 24px;
+
+		  .gpu-usage {
+		  	scale {
+		  		min-width: 128px;
+		  		min-height: 64px;
+		  	}
+
+		  	trough {
+		  		background: #ffffff;
+		  		border: none;
+		  		// border-radius: 20px;
+		  		min-height: 12px;
+		  	}
+
+		  	slider {
+		  		background-image: none;
+		  		box-shadow: none;
+		  		text-shadow: none;
+		  	}
+
+		  	highlight {
+		  		background: c.$color11;
+		  	}
+		  }
+		}
+	}
+
+	.test {
+		border-left: 8px solid c.$color4;
+	}
+}
