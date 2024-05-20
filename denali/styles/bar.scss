@@ -27,6 +27,14 @@ $module-separation: 16px;
 
   // Modules
 
+  .nix-info {
+    color: $color8;
+
+    .nix-logo {
+      margin-right: 6px;
+    }
+  }
+
   .workspaces {
     .workspace-id {
       .circle-outer {

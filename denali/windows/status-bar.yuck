@@ -2,7 +2,21 @@
 	(box
 		:class "bar-left"
 		:space-evenly false
-		(workspaces)
+		;; (workspaces)
+		(box
+			:class "nix-info"
+			:space-evenly false
+			(image 
+				;; TODO find a way to change colors of logo
+				:path "./images/nix-snowflake.svg"
+				:class "nix-logo"
+				:image-height 25
+				:image-width 25
+			)
+			(label
+				:text "cody@denali"
+			)
+		)
 	)
 )
 
