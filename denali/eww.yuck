@@ -10,6 +10,7 @@
 (include "./modules/brightness.yuck")
 (include "./modules/hardware.yuck")
 (include "./modules/weather.yuck")
+(include "./modules/mullvad.yuck")
 
 ;; Include windows
 (include "./windows/status-bar.yuck")

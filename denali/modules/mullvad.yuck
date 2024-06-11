@@ -1,0 +1,25 @@
+(defpoll server-name 
+	:interval "30s"
+	:initial "disconnected"
+	"./scripts/mullvad.sh --server-name"
+)
+
+(defpoll server-ip 
+	:interval "30s"
+	:initial "disconnected"
+	"./scripts/mullvad.sh --server-ip"
+)
+
+(defwidget mullvad []
+	(box
+		:class "mullvad"
+		:space-evenly false
+		(image 
+			:path "./images/mullvad.svg"
+			:class "mullvad-logo"
+			:image-height 25
+			:image-width 25
+		)
+		(label :text "[${server-name}:${server-ip}]")
+	)
+)
