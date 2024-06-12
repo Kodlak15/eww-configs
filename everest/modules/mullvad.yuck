@@ -1,3 +1,9 @@
+(defpoll status
+	:interval "30s"
+	:initial "false"
+	"./scripts/mullvad.sh --status"
+)
+
 (defpoll server-name 
 	:interval "30s"
 	:initial "disconnected"
@@ -14,12 +20,19 @@
 	(box
 		:class "mullvad"
 		:space-evenly false
-		(image 
-			:path "./images/mullvad.svg"
-			:class "mullvad-logo"
-			:image-height 25
-			:image-width 25
+		(eventbox 
+			:onclick "./scripts/mullvad.sh --applet"
+			:cursor "pointer"
+			(image
+				:path "./images/mullvad.svg"
+				:class "mullvad-logo"
+				:image-width 25
+				:image-height 25
+			)
 		)
-		(label :text "[${server-name}:${server-ip}]")
+		(label :text {
+			status == "Connected" ? "${server-name}:${server-ip}" :
+			"Disconnected"
+		})
 	)
 )
