@@ -35,6 +35,14 @@ $module-separation: 16px;
     }
   }
 
+  .mullvad {
+    margin-left: $module-separation;
+
+    .mullvad-logo {
+      margin-right: 6px;
+    }
+  }
+
   .workspaces {
     .workspace-id {
       .circle-outer {
