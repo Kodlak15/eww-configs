@@ -1,34 +1,46 @@
 (defwidget powermenu []
 	(box
 		:class "powermenu"
+		:height 250
+		:width 250
 		(box
-			:orientation "h"
+			:orientation "v"
 			:halign "center"
 			:valign "center"
-			:space-evenly false
-			(eventbox
-				:class "shutdown"
-				:halign "center"
-				:cursor "pointer"
-				(button
-					;; :onclick `"shutdown -h now"`
-					"󰐥"
-				)
-			)
-			(eventbox
-				:class "reboot"
-				:halign "center"
-				:valign "center"
-				:cursor "pointer"
+			(box
 				(eventbox
+					:class "shutdown"
+					:halign "center"
+					:valign "center"
+					:cursor "pointer"
 					(button
-						;; :onclick "reboot"
-						"󰜉"
+						;; :onclick `"shutdown -h now"`
+						"󰐥"
 					)
 				)
+				(label :text "Shutdown" :class "label" :xalign 0)
+			)
+			(box
+				(eventbox
+					:class "reboot"
+					:halign "center"
+					:valign "center"
+					:cursor "pointer"
+					(eventbox
+						(button
+							;; :onclick "reboot"
+							"󰜉"
+						)
+					)
+				)
+				(label :text "Reboot" :class "label" :xalign 0)
 			)
 		)
 	)
+)
+
+(defwidget confirm [pid]
+	(box)
 )
 
 (defwindow powermenu
@@ -39,7 +51,7 @@
 			:y "0.3%"
 			:width "10%"
 			:height "10%"
-			:anchor "top right"
+			:anchor "center"
 	)
 	:stacking "fg"
 	:exclusive true
