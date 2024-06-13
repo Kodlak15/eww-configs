@@ -21,10 +21,17 @@ status() {
 }
 
 toggle() {
-	case "$(status)" in
+	status="$(status)"
+	if [[ "$status" == "Connecting" ]]; then
+		status="Connected"
+	fi
+
+	case "$status" in
 		"Connected") mullvad disconnect;;
 		"Disconnected") mullvad connect;;
 	esac
+
+	echo "$status" >> "./listen/mullvad-state"
 }
 
 case "$1" in 

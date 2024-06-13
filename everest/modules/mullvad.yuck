@@ -16,6 +16,12 @@
 	"./scripts/mullvad.sh --server-ip"
 )
 
+;; TODO not working properly
+;; (deflisten state
+;; 	:initial "Disconnected"
+;; 	"tail -F ./listen/mullvad-state"
+;; )
+
 (defwidget mullvad []
 	(box
 		:class "mullvad"
@@ -35,5 +41,9 @@
 			status == "Connected" ? "${server-name}:${server-ip}" :
 			"Disconnected"
 		})
+		;; (label :text {
+		;; 	"${state}" == "Connected" ? "${server-name}:${server-ip}" :
+		;; 	"Disconnected"
+		;; })
 	)
 )
