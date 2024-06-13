@@ -20,10 +20,18 @@ status() {
 	mullvad status | head -n 1 | awk -F ' ' '{print $1}'
 }
 
+toggle() {
+	case "$(status)" in
+		"Connected") mullvad disconnect;;
+		"Disconnected") mullvad connect;;
+	esac
+}
+
 case "$1" in 
 	--applet) launch_mullvad_applet;;
 	--server-name) get_server_name;;
 	--server-ip) get_server_ip;;
 	--host-ip) get_host_ip;;
 	--status) status;;
+	--toggle) toggle;;
 esac
