@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+STATEDIR="$HOME/.local/state/eww/listeners/mullvad"
+if [[ ! -f "$STATEDIR" ]]; then
+	mkdir -p "$STATEDIR"
+fi
+
 launch_mullvad_applet() {
 	exec mullvad-vpn &
 }
@@ -25,11 +30,11 @@ toggle() {
 	case "$current_status" in
 		"Connected") 
 			mullvad disconnect
-			echo "Disconnected" > "./listen/mullvad-state"
+			echo "Disconnected" > "$STATEDIR/status"
 			;;
 		"Disconnected") 
 			mullvad connect
-			echo "Connected" > "./listen/mullvad-state"
+			echo "Connected" > "$STATEDIR/status"
 			;;
 	esac
 }

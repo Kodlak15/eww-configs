@@ -22,7 +22,7 @@
 
 (deflisten state
 	:initial "Connected"
-	"tail -F ./listen/mullvad-state"
+	"tail -F $HOME/.local/state/eww/listeners/mullvad"
 )
 
 (defwidget mullvad []
