@@ -1,15 +1,3 @@
-;; (defpoll server-name 
-;; 	:interval "30s"
-;; 	:initial "disconnected"
-;; 	"./scripts/mullvad.sh --server-name"
-;; )
-;;
-;; (defpoll server-ip 
-;; 	:interval "30s"
-;; 	:initial "disconnected"
-;; 	"./scripts/mullvad.sh --server-ip"
-;; )
-
 (deflisten server-name 
 	:initial ""
 	"./scripts/mullvad.sh --server-name"
@@ -22,7 +10,7 @@
 
 (deflisten state
 	:initial "Connected"
-	"tail -F $HOME/.local/state/eww/listeners/mullvad"
+	"tail -F $HOME/.local/state/eww/listeners/mullvad/status"
 )
 
 (defwidget mullvad []
