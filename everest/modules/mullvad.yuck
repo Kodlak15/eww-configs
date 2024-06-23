@@ -1,34 +1,38 @@
-(defpoll status
-	:interval "30s"
-	:initial "false"
-	"./scripts/mullvad.sh --status"
-)
+;; (defpoll server-name 
+;; 	:interval "30s"
+;; 	:initial "disconnected"
+;; 	"./scripts/mullvad.sh --server-name"
+;; )
+;;
+;; (defpoll server-ip 
+;; 	:interval "30s"
+;; 	:initial "disconnected"
+;; 	"./scripts/mullvad.sh --server-ip"
+;; )
 
-(defpoll server-name 
-	:interval "30s"
-	:initial "disconnected"
+(deflisten server-name 
+	:initial ""
 	"./scripts/mullvad.sh --server-name"
 )
 
-(defpoll server-ip 
-	:interval "30s"
-	:initial "disconnected"
+(deflisten server-ip 
+	:initial ""
 	"./scripts/mullvad.sh --server-ip"
 )
 
-;; TODO not working properly
-;; (deflisten state
-;; 	:initial "Disconnected"
-;; 	"tail -F ./listen/mullvad-state"
-;; )
+(deflisten state
+	:initial "Connected"
+	"tail -F ./listen/mullvad-state"
+)
 
 (defwidget mullvad []
 	(box
 		:class "mullvad"
 		:space-evenly false
 		(eventbox 
-			:onclick "./scripts/mullvad.sh --applet"
-			:onrightclick "./scripts/mullvad.sh --toggle"
+			:onrightclick "./scripts/mullvad.sh --applet"
+			:onclick "./scripts/mullvad.sh --toggle"
+			:timeout "2s"
 			:cursor "pointer"
 			(image
 				:path "./images/mullvad.svg"
@@ -38,12 +42,8 @@
 			)
 		)
 		(label :text {
-			status == "Connected" ? "${server-name}:${server-ip}" :
+			"${state}" == "Connected" ? "${server-name}:${server-ip}" :
 			"Disconnected"
 		})
-		;; (label :text {
-		;; 	"${state}" == "Connected" ? "${server-name}:${server-ip}" :
-		;; 	"Disconnected"
-		;; })
 	)
 )
