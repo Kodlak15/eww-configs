@@ -1,25 +1,37 @@
-(defpoll server-name 
-	:interval "30s"
-	:initial "disconnected"
+(deflisten server-name 
+	:initial ""
 	"./scripts/mullvad.sh --server-name"
 )
 
-(defpoll server-ip 
-	:interval "30s"
-	:initial "disconnected"
+(deflisten server-ip 
+	:initial ""
 	"./scripts/mullvad.sh --server-ip"
+)
+
+(deflisten state
+	:initial "Connected"
+	"tail -F $HOME/.local/state/eww/listeners/mullvad/status"
 )
 
 (defwidget mullvad []
 	(box
 		:class "mullvad"
 		:space-evenly false
-		(image 
-			:path "./images/mullvad.svg"
-			:class "mullvad-logo"
-			:image-height 25
-			:image-width 25
+		(eventbox 
+			:onrightclick "./scripts/mullvad.sh --applet"
+			:onclick "./scripts/mullvad.sh --toggle"
+			:timeout "2s"
+			:cursor "pointer"
+			(image
+				:path "./images/mullvad.svg"
+				:class "mullvad-logo"
+				:image-width 25
+				:image-height 25
+			)
 		)
-		(label :text "[${server-name}:${server-ip}]")
+		(label :text {
+			"${state}" == "Connected" ? "${server-name}:${server-ip}" :
+			"Disconnected"
+		})
 	)
 )

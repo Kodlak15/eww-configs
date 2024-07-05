@@ -18,7 +18,7 @@ get_server_ip() {
 }
 
 get_host_ip() {
-	ifconfig | grep "inet" | awk 'NR==2' | xargs | awk -F ' ' '{print $2}'  2>/dev/null
+	ifconfig | grep "inet" | awk 'NR==2' | xargs | awk -F ' ' '{print $2}' 2>/dev/null
 }
 
 status() {
@@ -28,22 +28,22 @@ status() {
 toggle() {
 	current_status="$(status)"
 	case "$current_status" in
-		"Connected") 
-			mullvad disconnect
-			echo "Disconnected" > "$STATEDIR/status"
-			;;
-		"Disconnected") 
-			mullvad connect
-			echo "Connected" > "$STATEDIR/status"
-			;;
+	"Connected")
+		mullvad disconnect
+		echo "Disconnected" >"$STATEDIR/status"
+		;;
+	"Disconnected")
+		mullvad connect
+		echo "Connected" >"$STATEDIR/status"
+		;;
 	esac
 }
 
-case "$1" in 
-	--applet) launch_mullvad_applet;;
-	--server-name) get_server_name;;
-	--server-ip) get_server_ip;;
-	--host-ip) get_host_ip;;
-	--status) status;;
-	--toggle) toggle;;
+case "$1" in
+--applet) launch_mullvad_applet ;;
+--server-name) get_server_name ;;
+--server-ip) get_server_ip ;;
+--host-ip) get_host_ip ;;
+--status) status ;;
+--toggle) toggle ;;
 esac
