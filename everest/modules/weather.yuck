@@ -1,13 +1,13 @@
 (defpoll temp
 	:interval "30s"
 	:initial "unavailable"
-	"tweather --opts temp"
+	"./scripts/weather.sh --temp"
 )
 
 (defpoll icon
 	:interval "30s"
 	:initial "./images/weather/error.png"
-	"tweather --opts icon"
+	"./scripts/weather.sh --icon"
 )
 
 (defwidget weather []
