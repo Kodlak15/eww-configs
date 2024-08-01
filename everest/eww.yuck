@@ -17,3 +17,4 @@
 (include "./windows/dashboard.yuck")
 (include "./windows/powermenu.yuck")
 (include "./windows/workspaces-toolbar.yuck")
+(include "./windows/applauncher.yuck")

@@ -1,0 +1,54 @@
+(defwidget launcher-item[cmd name imgpath]
+	(eventbox
+		:onclick "${cmd}"
+		:cursor "pointer"
+		:class "applauncher-event"
+		(box
+			:class "applauncher-item"
+			:orientation "h"
+			:width 600 ;; occupy full container
+			:halign "start"
+			:valign "start"
+			:space-evenly false
+			:spacing 20
+			(image 
+				:path "${imgpath}" 
+				:image-width 40
+				:image-height 40
+			)
+			(label 
+				:text "${name}" 
+			)
+		)
+	)
+)
+
+(defwidget applauncher[]
+	(eventbox
+		:onclick "eww close applauncher"
+		(box
+			:class "applauncher"
+			:orientation "v"
+			:space-evenly false
+			:spacing 20
+			(launcher-item :cmd "scripts/applaunch.sh --steam" :name "Steam" :imgpath "images/steam.svg")
+			(launcher-item :cmd "scripts/applaunch.sh --mullvad" :name "Mullvad-VPN" :imgpath "images/mullvad.svg")
+		)
+	)
+)
+
+(defwindow applauncher
+	:monitor 2
+	:geometry (
+		geometry
+			:x "50%"
+			:y "50%"
+			:width "600px"
+			:height "500px"
+			:anchor "center"
+	)
+	:stacking "fg"
+	:exclusive false 
+	:namespace "bar"
+	(applauncher)
+)
