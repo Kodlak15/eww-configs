@@ -34,6 +34,15 @@
             cp -r ${src} $out
           '';
         };
+        # Generic configuration
+        skyrim = mkDerivation rec {
+          name = "eww";
+          src = ./skyrim;
+
+          buildCommand = ''
+            cp -r ${src} $out
+          '';
+        };
       };
     });
 }

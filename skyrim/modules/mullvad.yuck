@@ -1,0 +1,37 @@
+(deflisten server-name 
+	:initial ""
+	"./scripts/mullvad.sh --server-name"
+)
+
+(deflisten server-ip 
+	:initial ""
+	"./scripts/mullvad.sh --server-ip"
+)
+
+(deflisten state
+	:initial "Connected"
+	"tail -F ./listeners/mullvad/state.log"
+	;; "head -n 1 $HOME/.local/state/eww/listeners/mullvad/status"
+)
+
+(defwidget mullvad []
+	(box
+		:class "mullvad"
+		:space-evenly false
+		(eventbox 
+			:onrightclick "./scripts/mullvad.sh --applet"
+			:onclick "./scripts/mullvad.sh --toggle"
+			:timeout "2s"
+			:cursor "pointer"
+			(box
+				:space-evenly false
+				:spacing 6
+				(label :text "󰖂 ")
+				(label :text {
+					"${state}" == "Connected" ? "${server-name}:${server-ip}" :
+					"Disconnected"
+				})
+			)
+		)
+	)
+)

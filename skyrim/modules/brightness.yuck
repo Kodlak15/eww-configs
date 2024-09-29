@@ -1,0 +1,24 @@
+(defpoll get_brightness
+	:interval "100ms"
+	:initial "0"
+	"brightnessctl | grep Current | awk -F ' ' '{print $3}'"
+)
+
+(defwidget brightness []
+	(box
+		:class "brightness"
+		:space-evenly false
+		:spacing 10
+		(label :text "󰛨" :class "brightness-icon")
+		(scale
+			:class "slider"
+			:value get_brightness
+			:orientation "h"
+			:tooltip "${get_brightness}"
+			:min 10
+			:max 401
+			:active true
+			:onchange "brightnessctl set {}"
+		)
+	)
+)

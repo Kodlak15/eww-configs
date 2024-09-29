@@ -1,0 +1,110 @@
+(defpoll core-temp
+	:initial "0"
+	:interval "5s"
+	"./scripts/hardware.sh --core-temp"
+)
+
+(defpoll cpu-usage
+	:initial "0"
+	:interval "5s"
+	"./scripts/hardware.sh --cpu-usage"
+)
+
+(defpoll gpu-temp
+	:initial "0"
+	:interval "5s"
+	"./scripts/hardware.sh --gpu-temp"
+)
+
+(defpoll gpu-usage
+	:initial "0"
+	:interval "5s"
+	"./scripts/hardware.sh --gpu-usage"
+)
+
+(defwidget core-temp []
+  (box
+		(label :text "${core-temp}󰔄")
+	)
+)
+
+(defwidget gpu-temp []
+  (box
+		(label :text "${gpu-temp}󰔄")
+	)
+)
+
+(defwidget cpu-usage []
+  (box
+		:class "cpu-usage"
+		:space-evenly false
+		:halign "center"
+		:spacing 10
+		;; (label :text "${cpu-usage}%")
+		(scale
+			:class "slider"
+			:value cpu-usage
+			:orientation "h"
+			:min 0
+			:max 101
+		)
+	)
+)
+
+(defwidget gpu-usage []
+  (box
+		:class "gpu-usage"
+		:space-evenly false
+		:halign "center"
+		:spacing 10
+		(scale
+			:class "slider"
+			:value gpu-usage
+			:orientation "h"
+			:min 0
+			:max 101
+		)
+	)
+)
+
+(defwidget cpu []
+	(box
+		:class "cpu"
+		:orientation "v"
+		:space-evenly false
+		(label :text " CPU" :xalign 0)
+		(box
+			:spacing 10
+			:space-evenly false
+		  (label :text "Usage:")
+		  (cpu-usage)
+		)
+		(box
+			:spacing 10
+			:space-evenly false
+		  (label :text "Temp :")
+		  (core-temp)
+		)
+	)
+)
+
+(defwidget gpu []
+	(box
+		:class "gpu"
+		:orientation "v"
+		:space-evenly false
+		(label :text "󰕧 GPU" :xalign 0)
+		(box
+			:spacing 10
+			:space-evenly false
+		  (label :text "Usage:")
+		  (gpu-usage)
+		)
+		(box
+			:spacing 10
+			:space-evenly false
+		  (label :text "Temp :")
+		  (gpu-temp)
+		)
+	)
+)

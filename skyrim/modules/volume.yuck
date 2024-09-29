@@ -1,0 +1,36 @@
+(defpoll muted
+	:interval "1s"
+	:initial false
+	`./scripts/sound.sh --muted`
+)
+
+(defpoll get_volume
+	:interval "100ms"
+	:initial "0"
+	`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F ' ' '{print $2}'`
+)
+
+(defwidget volume []
+	(box
+		:class "volume"
+		:space-evenly false
+		:spacing 16
+		(label 
+			:text {
+				muted == false ? "" :
+        "󰝟"
+			} 
+			:class "volume-icon"
+		)
+		(scale
+			:class "slider"
+			:value "${get_volume * 100}"
+			:orientation "h"
+			:tooltip "${get_volume}"
+			:min 0
+			:max 101
+			:active true
+			:onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+		)
+	)
+)

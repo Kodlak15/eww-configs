@@ -1,0 +1,50 @@
+@use "/home/cody/.cache/wal/colors" as *;
+
+window {
+  background: transparent;
+}
+
+.workspaces-toolbar {
+  all: unset;
+  font-family: Fira Code Nerd Font;
+  background: $background;
+  border: 2px solid $color11;
+  border-radius: 1.0rem;
+
+  .workspaces {
+    margin: 2px;
+    padding: 2px 12px;
+
+    &>* {
+      border: none;
+    }
+
+    .workspace-id {
+      margin: 3px;
+
+      .circle-outer {
+        padding: 4px;
+        margin: 2px;
+        border: 4px solid #222222;
+        border-radius: 100px;
+      }
+
+      .circle-inner {
+        background: $color8;
+        border-radius: 100px;
+      }
+
+      &.occupied {
+        .circle-outer {
+          border: 4px solid $color11;
+        }
+      }
+
+      &.current {
+        .circle-outer {
+          border: 4px solid #ffffff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+STATEDIR="$HOME/.local/state/eww/listeners/mullvad"
+if [[ ! -f "$STATEDIR" ]]; then
+	mkdir -p "$STATEDIR"
+fi
+
+launch_mullvad_applet() {
+	exec mullvad-vpn &
+}
+
+get_server_name() {
+	mullvad status | head -n 1 | awk -F ' ' '{print $3}' 2>/dev/null
+}
+
+get_server_ip() {
+	mullvad status | tail -n 1 | awk -F 'IPv4: ' '{print $2}' 2>/dev/null
+}
+
+get_host_ip() {
+	ifconfig | grep "inet" | awk 'NR==2' | xargs | awk -F ' ' '{print $2}' 2>/dev/null
+}
+
+status() {
+	mullvad status | head -n 1 | awk -F ' ' '{print $1}' 2>/dev/null | xargs
+}
+
+toggle() {
+	current_status="$(status)"
+	case "$current_status" in
+	"Connected")
+		timeout 5 mullvad disconnect
+		echo "Disconnected" >"$STATEDIR/status"
+		;;
+	"Disconnected")
+		timeout 5 mullvad connect
+		echo "Connected" >"$STATEDIR/status"
+		;;
+	esac
+}
+
+case "$1" in
+--applet) launch_mullvad_applet ;;
+--server-name) get_server_name ;;
+--server-ip) get_server_ip ;;
+--host-ip) get_host_ip ;;
+--status) status ;;
+--toggle) toggle ;;
+esac
