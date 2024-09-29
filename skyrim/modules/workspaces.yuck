@@ -8,7 +8,7 @@
     (box 
       :class "workspaces-container"
       :space-evenly true
-			:spacing j
+			:spacing 2
       (label 
         :text "${workspaces}${current_workspace}" 
         :visible false
