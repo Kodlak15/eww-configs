@@ -32,7 +32,7 @@
 		:halign "end"
 		(brightness)
 		(volume)
-		(weather)
+		;; (weather) ;; disabling until program fixed
 		(battery)
 	)
 )
