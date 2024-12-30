@@ -14,7 +14,7 @@
 			)
 			(label :text "cody@skyrim")
 		)
-		(mullvad)
+		;; (mullvad)
 	)
 )
 
@@ -30,8 +30,8 @@
 		:class "bar-right"
 		:space-evenly false
 		:halign "end"
-		(brightness)
-		(volume)
+		;; (brightness)
+		;; (volume)
 		;; (weather) ;; disabling until program fixed
 		(battery)
 	)

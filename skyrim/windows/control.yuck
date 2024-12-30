@@ -83,9 +83,9 @@
 			:hexpand true
 			(scale
 				:class "slider"
-				;; :value "${get_volume * 100}"
+				:value "${get_volume * 100}"
 				:orientation "h"
-				;; :tooltip "${get_volume}"
+				:tooltip "${get_volume}"
 				:min 0
 				:max 101
 				:width 128
@@ -96,7 +96,12 @@
 	)
 )
 
-;; TODO
+(defpoll get_brightness
+	:interval "100ms"
+	:initial "0"
+	"brightnessctl | grep Current | awk -F ' ' '{print $3}'"
+)
+
 (defwidget brightness []
 	(box
 		:class "volume"
@@ -113,18 +118,19 @@
 			:hexpand true
 			(scale
 				:class "slider"
-				;; :value "${get_volume * 100}"
+				:value "${get_brightness}"
 				:orientation "h"
-				;; :tooltip "${get_volume}"
-				:min 0
-				:max 101
+				:tooltip "${get_brightness}"
+				:min 5
+				:max 401
 				:width 128
 				:active true
-				:onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+				:onchange "brightnessctl set {}"
 			)
 		)
 	)
 )
+
 (defwindow control
 	:monitor 0
 	:geometry (
