@@ -16,25 +16,6 @@
       mkDerivation = pkgs.stdenv.mkDerivation;
     in {
       packages = {
-        # Desktop eww config
-        everest = mkDerivation rec {
-          name = "eww";
-          src = ./everest;
-
-          buildCommand = ''
-            cp -r ${src} $out
-          '';
-        };
-        # Laptop eww config
-        denali = mkDerivation rec {
-          name = "eww";
-          src = ./denali;
-
-          buildCommand = ''
-            cp -r ${src} $out
-          '';
-        };
-        # Generic configuration
         skyrim = mkDerivation rec {
           name = "eww";
           src = ./skyrim;

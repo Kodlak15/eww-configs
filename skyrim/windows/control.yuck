@@ -1,0 +1,142 @@
+(defvar vpn_active true)
+
+(defwidget control[]
+	(box
+		:class "control"
+		(box
+			:space-evenly false
+			:orientation "v"
+			:spacing 12
+			:valign "center"
+			(vpn_toggler)
+			(volume)
+			(brightness)
+		)
+	)
+)
+
+(defwidget vpn_toggler[]
+	(box
+		:class "vpn-toggler"
+		:space-evenly false
+		:spacing 12
+		(label
+			:class "vpn-toggler-label"
+			:halign "start"
+			:text "VPN"
+			:width 128
+		)
+		(box
+			:class "vpn-toggler-button-container"
+			:halign "fill"
+			:hexpand true
+			:spacing 12
+			(eventbox
+				:class {
+					vpn_active == true ? "vpn-toggler-button-on-active" : "vpn-toggler-button-on"
+				} 
+				:cursor "pointer"
+				:onclick "eww update vpn_active=true"
+				:halign "fill"
+				:hexpand true
+				"ON "
+			)
+			(eventbox
+				:class {
+					vpn_active == false ? "vpn-toggler-button-off-active" : "vpn-toggler-button-off"
+				} 
+				:cursor "pointer"
+				:onclick "eww update vpn_active=false"
+				:halign "fill"
+				:hexpand true
+				"OFF"
+			)
+		)
+	)
+)
+
+(defpoll muted
+	:interval "1s"
+	:initial false
+	`./scripts/sound.sh --muted`
+)
+
+(defpoll get_volume
+	:interval "100ms"
+	:initial "0"
+	`wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F ' ' '{print $2}'`
+)
+
+(defwidget volume []
+	(box
+		:class "volume"
+		:space-evenly false
+		:spacing 12
+		(label
+			:class "vpn-toggler-label"
+			:halign "start"
+			:text "Volume"
+			:width 128
+		)
+		(box
+			:halign "fill"
+			:hexpand true
+			(scale
+				:class "slider"
+				;; :value "${get_volume * 100}"
+				:orientation "h"
+				;; :tooltip "${get_volume}"
+				:min 0
+				:max 101
+				:width 128
+				:active true
+				:onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+			)
+		)
+	)
+)
+
+;; TODO
+(defwidget brightness []
+	(box
+		:class "volume"
+		:space-evenly false
+		:spacing 12
+		(label
+			:class "vpn-toggler-label"
+			:halign "start"
+			:text "Brightness"
+			:width 128
+		)
+		(box
+			:halign "fill"
+			:hexpand true
+			(scale
+				:class "slider"
+				;; :value "${get_volume * 100}"
+				:orientation "h"
+				;; :tooltip "${get_volume}"
+				:min 0
+				:max 101
+				:width 128
+				:active true
+				:onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+			)
+		)
+	)
+)
+(defwindow control
+	:monitor 0
+	:geometry (
+		geometry
+			:x "50%"
+			:y "50%"
+			:width "25%"
+			:height "25%"
+			:anchor "center"
+	)
+	:stacking "fg"
+	:exclusive true
+	:namespace "bar"
+	(control)
+)
