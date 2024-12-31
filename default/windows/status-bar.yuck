@@ -1,3 +1,15 @@
+(defpoll hostname
+	:interval "1d" 
+	:initial "" 
+	"hostname"
+)
+
+(defpoll user 
+	:interval "1d" 
+	:initial "" 
+	"whoami"
+)
+
 (defwidget left []
 	(box
 		:class "bar-left"
@@ -11,7 +23,8 @@
 				:image-height 20
 				:image-width 20
 			)
-			(label :text "cody@skyrim")
+			;; (label :text "cody@skyrim")
+			(label :text "${user}@${hostname}")
 		)
 	)
 )

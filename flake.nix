@@ -16,9 +16,9 @@
       mkDerivation = pkgs.stdenv.mkDerivation;
     in {
       packages = {
-        skyrim = mkDerivation rec {
+        default = mkDerivation rec {
           name = "eww";
-          src = ./skyrim;
+          src = ./default;
 
           buildCommand = ''
             cp -r ${src} $out
