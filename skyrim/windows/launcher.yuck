@@ -1,0 +1,69 @@
+(defwidget launcher_app[name image_path cmd]
+	(eventbox
+		:onclick cmd
+		:cursor "pointer"
+		(box
+			:class "launcher-app"
+			:space-evenly false
+			:spacing 12
+			:height 32
+			:width 32
+			(image 
+				:path image_path
+				:image-height 32
+				:image-width 32
+				:preserve-aspect-ratio true
+			)
+			name
+		)
+	)
+)
+
+(defwidget launcher[]
+	(box
+		:class "launcher"
+		(box
+			:space-evenly false
+			:orientation "v"
+			:spacing 12
+			:vexpand true
+			(scroll
+				:class "launcher-scroll"
+				:vscroll true
+				:vexpand true
+				(box
+					:orientation "v"
+					:space-evenly false
+					:spacing 12
+					:halign "fill"
+					(launcher_app
+						:name "Steam"
+						:image_path "./images/steam.svg"
+						:cmd "eww close launcher && exec steam &"
+					)
+					(launcher_app
+						:name "Godot"
+						:image_path "./images/godot.svg"
+						:cmd "eww close launcher && exec godot4 &"
+					)
+				)
+			)
+		)
+	)
+)
+
+(defwindow launcher 
+	:monitor 0
+	:geometry (
+		geometry
+			:x "50%"
+			:y "50%"
+			:width "25%"
+			:height "25%"
+			:anchor "center"
+	)
+	:stacking "fg"
+	:exclusive true
+	:namespace "launcher"
+	(launcher)
+)

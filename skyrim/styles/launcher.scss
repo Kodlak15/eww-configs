@@ -1,0 +1,45 @@
+@use "/home/cody/.cache/wal/colors" as *;
+
+// Launcher
+
+.launcher {
+  background: $background;
+  border: 0.2rem solid $color11;
+  border-radius: 0.3rem;
+  padding: 2.0rem;
+}
+
+.launcher-scroll {
+  background: $color11;
+  color: black;
+  padding: 0.8rem;
+
+  scrollbar {
+    /* background: red; */
+    /* margin-left: 10px; */
+  }
+
+  trough {
+    /* background: green; */
+    background: transparent;
+    /* border: 0.1rem solid $color11; */
+    border-radius: 0.3rem;
+  }
+
+  slider {
+    background: white;
+  }
+}
+
+.launcher-app {
+  background: $background;
+  color: white;
+  padding: 0.8rem;
+  border: 0.1rem solid white;
+  border-radius: 0.3rem;
+
+  image {
+    /* border: 0.1rem solid white; */
+    border-radius: 100%;
+  }
+}
