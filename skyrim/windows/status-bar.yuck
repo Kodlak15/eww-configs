@@ -2,7 +2,6 @@
 	(box
 		:class "bar-left"
 		:space-evenly false
-		;; (workspaces)
 		(box
 			:class "nix-info"
 			:space-evenly false
@@ -14,14 +13,13 @@
 			)
 			(label :text "cody@skyrim")
 		)
-		;; (mullvad)
 	)
 )
 
 (defwidget center []
 	(box
 		:class "bar-center"
-		(datetime)
+		(workspaces)
 	)
 )
 
@@ -30,10 +28,9 @@
 		:class "bar-right"
 		:space-evenly false
 		:halign "end"
-		;; (brightness)
-		;; (volume)
-		;; (weather) ;; disabling until program fixed
+		:spacing 6
 		(battery)
+		(datetime)
 	)
 )
 
