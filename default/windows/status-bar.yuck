@@ -1,11 +1,11 @@
 (defpoll hostname
-	:interval "1d" 
+	:interval "999999999999s" 
 	:initial "" 
 	"hostname"
 )
 
 (defpoll user 
-	:interval "1d" 
+	:interval "999999999999s" 
 	:initial "" 
 	"whoami"
 )
@@ -23,7 +23,6 @@
 				:image-height 20
 				:image-width 20
 			)
-			;; (label :text "cody@skyrim")
 			(label :text "${user}@${hostname}")
 		)
 	)
