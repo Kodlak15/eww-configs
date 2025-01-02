@@ -56,6 +56,11 @@
 						:image_path "./images/godot.svg"
 						:cmd "eww close launcher && exec godot4 &"
 					)
+					(launcher_app
+						:name "Blender"
+						:image_path "./images/blender.png"
+						:cmd "eww close launcher && exec blender &"
+					)
 				)
 			)
 		)
