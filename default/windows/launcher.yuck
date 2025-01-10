@@ -48,7 +48,7 @@
 					)
 					(launcher_app
 						:name "Spotify"
-						:image_path "./images/brave.svg"
+						:image_path "./images/spotify.png"
 						:cmd "eww close launcher && exec spotify &"
 					)
 					(launcher_app
