@@ -63,7 +63,7 @@
 					)
 					(launcher_app
 						:name "Blender"
-						:image_path "./images/blender.png"
+						:image_path "./images/blender.svg"
 						:cmd "eww close launcher && exec blender &"
 					)
 				)
