@@ -57,6 +57,11 @@
 						:cmd "eww close launcher && exec steam &"
 					)
 					(launcher_app
+						:name "Discord"
+						:image_path "./images/discord.svg"
+						:cmd "eww close launcher && exec webcord &"
+					)
+					(launcher_app
 						:name "Godot"
 						:image_path "./images/godot.svg"
 						:cmd "eww close launcher && exec godot4 &"
