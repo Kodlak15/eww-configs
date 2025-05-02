@@ -1,19 +1,20 @@
-@use "/home/cody/.cache/wal/colors" as *;
+/* @use "/home/cody/.cache/wal/colors" as *; */
+@use "./themes/ayu_mirage" as *;
 
 // Control
 
 .control {
   background: $background;
-  border: 0.2rem solid $color11;
+  border: 0.2rem solid $accent;
   border-radius: 0.3rem;
   padding: 2.0rem;
 }
 
 .vpn-toggler {
-  background: $color11;
+  background: $accent;
   color: white;
   padding: 0.8rem;
-  border: 0.2rem solid $color11;
+  border: 0.2rem solid $accent;
   border-radius: 0.3rem;
 }
 
@@ -39,7 +40,7 @@
 
 .vpn-toggler-button-on-active {
   background: $background;
-  color: $color11;
+  color: $accent;
   border: 0.1rem solid white;
   border-radius: 0.3rem;
 }
@@ -52,14 +53,14 @@
 
 .vpn-toggler-button-off-active {
   background: $background;
-  color: $color11;
+  color: $accent;
   border: 0.1rem solid white;
   border-radius: 0.3rem;
 }
 
 .volume {
-  background: $color11;
-  color: $color8;
+  background: $accent;
+  color: $foreground;
   padding: 0.8rem;
   border-radius: 0.3rem;
 
@@ -84,12 +85,12 @@
 
   slider {
     background-image: none;
-    background: $color8;
+    background: $foreground;
     box-shadow: none;
     text-shadow: none;
   }
 
   highlight {
-    background: $color11;
+    background: $accent;
   }
 }

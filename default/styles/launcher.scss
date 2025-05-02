@@ -1,16 +1,17 @@
-@use "/home/cody/.cache/wal/colors" as *;
+/* @use "/home/cody/.cache/wal/colors" as *; */
+@use "./themes/ayu_mirage" as *;
 
 // Launcher
 
 .launcher {
   background: $background;
-  border: 0.2rem solid $color11;
+  border: 0.2rem solid $accent;
   border-radius: 0.3rem;
   padding: 2.0rem;
 }
 
 .launcher-scroll {
-  background: $color11;
+  background: $accent;
   color: black;
   padding: 0.8rem;
 
@@ -22,7 +23,7 @@
   trough {
     /* background: green; */
     background: transparent;
-    /* border: 0.1rem solid $color11; */
+    /* border: 0.1rem solid $accent; */
     border-radius: 0.3rem;
   }
 

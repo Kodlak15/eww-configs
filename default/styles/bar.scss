@@ -1,4 +1,5 @@
-@use "/home/cody/.cache/wal/colors" as *;
+/* @use "/home/cody/.cache/wal/colors" as *; */
+@use "./themes/ayu_mirage" as *;
 
 // Variables
 
@@ -12,7 +13,7 @@ $module-separation: 16px;
   font-family: Fira Code Nerd Font;
   font-size: 12px;
   background: $background;
-  border-bottom: 2px solid $color11;
+  border-bottom: 2px solid $accent;
 
   // Containers
 
@@ -27,7 +28,7 @@ $module-separation: 16px;
   // Modules
 
   .nix-info {
-    color: $color8;
+    color: $foreground;
 
     .nix-logo {
       margin-right: 6px;
@@ -52,13 +53,13 @@ $module-separation: 16px;
       }
 
       .circle-inner {
-        background: $color8;
+        background: $foreground;
         border-radius: 100px;
       }
 
       &.occupied {
         .circle-outer {
-          border: 2px solid $color11;
+          border: 2px solid $accent;
         }
       }
 
@@ -71,11 +72,11 @@ $module-separation: 16px;
   }
 
   .datetime {
-    color: $color8;
+    color: $foreground;
   }
 
   .brightness {
-    color: $color8;
+    color: $foreground;
     margin-right: $module-separation;
 
     scale {
@@ -101,12 +102,12 @@ $module-separation: 16px;
     }
 
     highlight {
-      background: $color11;
+      background: $accent;
     }
   }
 
   .volume {
-    color: $color8;
+    color: $foreground;
     margin-right: $module-separation;
 
     .volume-icon {
@@ -133,12 +134,12 @@ $module-separation: 16px;
     }
 
     highlight {
-      background: $color11;
+      background: $accent;
     }
   }
 
   .weather {
-    color: $color8;
+    color: $foreground;
     margin-right: $module-separation;
 
     .icon {
@@ -148,7 +149,7 @@ $module-separation: 16px;
 
   .battery {
     font-size: 16px;
-    color: $color8;
+    color: $foreground;
 
     &.charging {
       color: #00ff00;
