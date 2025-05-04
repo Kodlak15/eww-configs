@@ -24,7 +24,8 @@
 			:class "nix-info"
 			:space-evenly false
 			(image 
-				:path "/home/cody/.cache/wal/nix-snowflake.svg"
+				;; :path "/home/cody/.cache/wal/nix-snowflake.svg"
+				:path "./images/nix-snowflake.svg"
 				:class "nix-logo"
 				:image-height 20
 				:image-width 20
